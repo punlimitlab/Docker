@@ -49,10 +49,10 @@ function Publish-AspNetDocker {
 
         # Trim the trailing '\' to avoid quoting issue
         $packOutput = $packOutput.TrimEnd('\')
-        $profileName = (Split-Path $PSCommandPath -Leaf).Replace('-publish.ps1', '')
+        $profileName = (Split-Path $PSCommandPath -Leaf).Replace('.ps1', '')
 
         # Search for current publish profile and publish script in the package output directory
-        $profile = Get-ChildItem -Path $packOutput -Filter "$profileName.pubxml" -Recurse | Where { Test-Path (Join-Path $_.Directory.FullName "$profileName-publish.ps1") } | Select -First 1
+        $profile = Get-ChildItem -Path $packOutput -Filter "$profileName.pubxml" -Recurse | Where { Test-Path (Join-Path $_.Directory.FullName "$profileName.ps1") } | Select -First 1
         if (!$profile) {
             throw 'cannot find current publish profile {0}.pubxml in the package output location {1}' -f $profileName, $packOutput
         }
