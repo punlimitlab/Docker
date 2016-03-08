@@ -1,0 +1,11 @@
+FROM windowsservercore
+
+ENV DNX_VersionNuPkgOrAlias latest
+ENV DNX_Arch x64
+ENV DNX_Runtime clr
+
+# bootstrap DNVM 
+RUN ["powershell", "-Command", "& {iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.ps1'))}"]
+
+# Install DNVM.  Alias as 'default' for so projects are built with this version later.
+RUN ["powershell", "-Command", "& $env:TEMP/dnvminstall/dnvm.ps1 install $env:DNX_VersionNuPkgOrAlias -Arch $env:DNX_Arch -Runtime $env:DNX_Runtime -Persistent -Alias default -g"]
