@@ -6,7 +6,7 @@ then
 else
 	echo "Image does not exist, creating it"
 	mkdir /tmp/dockertmp
-	cp Dockerfile.base.arm /tmp/dockertmp/Dockerfile
+	cp ./BaseImages/Dockerfile.base.arm /tmp/dockertmp/Dockerfile
 	docker build -t punlimitlab/aspnetbase:latest /tmp/dockertmp
 	rm -Rf /tmp/dockertmp
 	
