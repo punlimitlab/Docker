@@ -9,9 +9,9 @@ else
 	cp ./BaseImages/Dockerfile.base.arm_alpha /tmp/dockertmp/Dockerfile
 	docker build -t punlimitlab/aspnetbase:alpha /tmp/dockertmp
 	rm -Rf /tmp/dockertmp
-	
-	echo "Push on docker hub"
-	docker push punlimitlab/aspnetbase:alpha
 fi
+
+echo "Push on docker hub"
+docker push punlimitlab/aspnetbase:alpha
 
 echo "Done!"
