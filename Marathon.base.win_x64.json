@@ -1,0 +1,13 @@
+{
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "punlimitlab/punlimit"
+    }
+  },
+  "id": "base.win_x64",
+  "instances": "1",
+  "cpus": "0.5",
+  "mem": "128",
+  "uris": []
+}
