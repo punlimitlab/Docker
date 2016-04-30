@@ -1,0 +1,6 @@
+partsunlimited:
+  image: 'punlimitlab/punlimit:latest'
+  environment:
+    - 'server.urls=http://*:5000'
+  ports:
+    - '80:5000'
